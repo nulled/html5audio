@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>HTML5 - Audio Player</title>
+<script src="audioplayer.js"></script>
+<script src="id3-minimized.js"></script>
+<script src="id3reader.js"></script>
+<link rel="stylesheet" href="menu.css" media="screen" />
+<link rel="stylesheet" href="3dflip.css" media="screen" />
+<link rel="stylesheet" href="audioplayer.css" media="screen" />
+<style>
+html, body { margin:0; padding:0; }
+body { background:url(bg.jpg); }
+div.notes {
+    font:12px Verdana;
+    margin:0 auto;
+    text-align:left;
+    width:550px
+}
+</style>
+</head>
+<body>
+<div class="maincontainer">
+    <ul class="menu">
+        <li><a href="#">My Music</a>
+            <ul>
+                <li><a href="#" class="documents">Documents</a></li>
+                <li><a href="#" class="messages">Messages</a></li>
+                <li><a href="#" class="signout">Sign Out</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Likes</a></li>
+        <li><a href="#">Views</a>
+            <ul>
+                <li><a href="#" class="documents">Documents</a></li>
+                <li><a href="#" class="messages">Messages</a></li>
+                <li><a href="#" class="signout">Sign Out</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Uploads</a></li>
+        <li><a href="#">Downloads</a></li>
+        <li><a href="#">Help</a></li>
+    </ul>
+
+    <div class="flip3D">
+        <div class="back">
+            <div id="audio_player_box">
+              <audio id="my_audio" width="550" height="300">
+                <source src="dancin.ogg">
+                <source src="dancin.mp3">
+              </audio>
+              <div id="audio_controls_bar">
+                <button id="playpausebtn"> </button>
+                <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+                <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+                <button id="mutebtn">Mute</button>
+                <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+              </div>
+            </div>
+        </div>
+
+        <div class="front">
+            <div class="notes">
+                <!-- <input type="file" id="file" onchange="loadFile(this)"> -->
+                <p><b>Title:</b> <span id="title"> </span></p>
+                <p><b>Artist:</b> <span id="artist"> </span></p>
+                <p><b>Album:</b> <span id="album"> </span></p>
+                <img id="picture" src="" alt= "picture extracted from ID3" />
+                <!-- <pre>ffmpeg -i dancin.mp3 -acodec libvorbis dancin.ogg</pre> -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
